@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  python-app:
+    image: python:3.9-slim
+    container_name: python-db2-app
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: "8e359033-a1c9-4643-82ef-8ac06f5107eb.bs2io90l08kqb1od8lcg.databases.appdomain.cloud"
+      DB_PORT: "31198"
+      DB_NAME: "BLUDB"
+      DB_USER: "gjv60349"
+      DB_PASSWORD: "hCz6poxktWXpLYtx"
+    command: >
+      sh -c "pip install ibm_db flask &&
+             python index.py"
